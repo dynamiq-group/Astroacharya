@@ -1,0 +1,71 @@
+/* Replace the existing HERO SECTION block with this block. */
+.hero {
+  background: var(--hero-background);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  padding-block: 7rem 3rem;
+}
+
+.hero__bg-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--hero-background-pattern);
+}
+
+.hero__container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  max-width: 640px;
+}
+
+/* Reference desktop placement: 620px square, cropped by the right edge. */
+.hero__mandala {
+  position: absolute;
+  top: 60px;
+  right: -180px;
+  z-index: 1;
+  width: 620px;
+  height: 620px;
+  opacity: var(--hero-mandala-opacity);
+  pointer-events: none;
+  user-select: none;
+  display: none;
+}
+
+.hero__mandala-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: hero-mandala-spin 120s linear infinite;
+}
+
+@keyframes hero-mandala-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Astrotalk hides this particular background graphic below desktop. */
+@media (min-width: 1024px) {
+  .hero__mandala {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__mandala-svg {
+    animation: none !important;
+  }
+}

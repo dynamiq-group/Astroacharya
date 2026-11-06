@@ -1,0 +1,141 @@
+/* Header styles. Names are scoped to avoid the old astrotalk-header rules. */
+.astro-header,
+.astro-drawer {
+  --ah-text: #1a1208;
+  --ah-dim: #5a4a2e;
+  --ah-faint: #9a8a6e;
+  --ah-border: rgba(26, 18, 8, 0.1);
+  --ah-idle: rgba(255, 248, 239, 0.62);
+  --ah-scrolled: rgba(255, 248, 239, 0.82);
+  --ah-drop: rgba(255, 255, 255, 0.97);
+  --ah-drop-border: rgba(26, 18, 8, 0.1);
+  --ah-drop-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --ah-hover: rgba(241, 225, 53, 0.15);
+  --ah-yellow: #f7ee7a;
+  --ah-yellow-ink: #1c1304;
+  --ah-yellow-shadow: 0 4px 20px rgba(241, 225, 53, 0.3);
+  --ah-drawer-bg: linear-gradient(180deg, #fffdf7 0%, #fbf4e6 100%);
+  --ah-card: #fff;
+  --ah-icon: #f1ece2;
+  color: var(--ah-text);
+  font-family: var(--font-astro-header, 'Raleway'), 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.astro-header *, .astro-drawer * { box-sizing: border-box; }
+.astro-header button, .astro-drawer button { font: inherit; cursor: pointer; }
+.astro-header a, .astro-drawer a { color: inherit; text-decoration: none; }
+.astro-header [hidden], .astro-drawer [hidden] { display: none !important; }
+.astro-header svg, .astro-drawer svg { flex-shrink: 0; }
+.astro-header :focus-visible, .astro-drawer :focus-visible { outline: 2px solid #d9a441; outline-offset: 3px; }
+
+.astro-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent), var(--ah-idle);
+  border-bottom: 1px solid var(--ah-border);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.astro-header--scrolled { background-color: var(--ah-scrolled); border-bottom-color: var(--ah-border); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 28px rgba(0, 0, 0, 0.12); }
+.astro-header__inner { max-width: 1400px; margin-inline: auto; padding-inline: 16px; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.astro-header__left { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.astro-header__brand { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.astro-header__logo { display: flex; align-items: center; flex-shrink: 0; width: 32px; height: 32px; }
+.astro-header__logo svg { width: 100%; height: 100%; }
+.astro-header__brand-name { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; max-width: clamp(100px, 24vw, 190px); overflow: hidden; text-overflow: ellipsis; }
+.astro-header__hamburger { border: 0; color: var(--ah-text); background: transparent; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; margin-left: -4px; flex-shrink: 0; padding: 0; }
+.astro-header__nav { display: none; align-items: center; gap: 2px; margin-left: 20px; }
+.astro-header__nav-item { position: relative; }
+.astro-header__nav-trigger, .astro-header__nav-link { display: inline-flex; align-items: center; gap: 2px; padding: 8px 12px; font-size: 13px !important; font-weight: 500 !important; color: var(--ah-text); background: transparent; border: 0; border-radius: 999px; line-height: 1.5; white-space: nowrap; transition: background-color 0.2s ease; }
+.astro-header__nav-trigger:hover, .astro-header__nav-trigger[aria-expanded='true'], .astro-header__nav-link:hover { background: var(--ah-hover); }
+.astro-header__chevron { margin-left: 4px; opacity: 0.5; transition: transform 0.2s ease; }
+.astro-header__nav-trigger[aria-expanded='true'] .astro-header__chevron { opacity: 0.8; transform: translateY(1px); }
+.astro-header__dropdown { position: absolute; top: 100%; left: 0; padding-top: 8px; min-width: 220px; width: max-content; max-width: 350px; z-index: 2; }
+.astro-header__dropdown-card { padding-block: 8px; border: 1px solid var(--ah-drop-border); border-radius: 12px; background: var(--ah-drop); box-shadow: var(--ah-drop-shadow); backdrop-filter: blur(20px); max-height: min(70vh, 650px); overflow-y: auto; overscroll-behavior: contain; animation: astro-dropdown-in 0.2s ease-out; }
+.astro-header__dropdown-link { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 16px; font-size: 13px; font-weight: 400; color: var(--ah-dim) !important; }
+.astro-header__dropdown-link svg { opacity: 0.45; }
+.astro-header__dropdown-link:hover { background: var(--ah-hover); color: var(--ah-text) !important; }
+.astro-header__dropdown-link:hover svg { opacity: 1; }
+.astro-header__career { display: inline-flex; align-items: center; padding: 8px 20px; font-size: 13px; font-weight: 600; border-radius: 999px; color: var(--ah-yellow-ink) !important; background: var(--ah-yellow); box-shadow: var(--ah-yellow-shadow); max-width: 150px; transition: transform 0.2s ease; }
+.astro-header__career:hover { transform: scale(1.02); }
+.astro-header__actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.astro-header__icon-btn { width: 36px; height: 36px; border: 1px solid var(--ah-border); border-radius: 50%; background: transparent; display: inline-flex; align-items: center; justify-content: center; color: var(--ah-text); padding: 0; transition: transform 0.2s ease, background-color 0.2s ease; }
+.astro-header__icon-btn:hover { transform: scale(1.05); background: var(--ah-hover); }
+.astro-header__profile { color: var(--ah-faint) !important; }
+.astro-header__language { font-weight: 600 !important; font-size: 13px !important; gap: 0; }
+.astro-header__language span:first-child { font-family: var(--font-body), 'Noto Sans Devanagari', sans-serif; }
+.astro-header__language span:last-child { font-size: 11px; }
+.astro-header__cta { display: none; align-items: center; gap: 8px; padding: 8px 20px; color: #FFFFFF !important; background: #FF4500; border-radius: 999px; border: 0; font-size: 13px; font-weight: 600; box-shadow: 0 4px 20px rgba(255, 69, 0, 0.3); transition: transform 0.2s ease; }
+.astro-header__cta:hover { transform: scale(1.02); }
+.astro-header__talk, .astro-header__separator { display: none; }
+.astro-header__separator { opacity: 0.4; }
+.astro-header__offer { font-size: 12px; font-weight: 500; opacity: 0.8; }
+.astro-header__cta svg { margin-left: 2px; }
+
+.astro-drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 87%;
+  max-width: 358px;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-right: 1px solid var(--ah-border);
+  background: var(--ah-drawer-bg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.astro-drawer[open] { display: flex; flex-direction: column; animation: astro-drawer-in 0.34s cubic-bezier(0.4, 0, 0.2, 1); }
+.astro-drawer::backdrop { background: rgba(6, 4, 10, 0.55); backdrop-filter: blur(2px); }
+.astro-drawer__header { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 20px; border-bottom: 1px solid var(--ah-border); }
+.astro-drawer__header .astro-header__brand-name { max-width: 205px; font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
+.astro-drawer__close { width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--ah-border); background: var(--ah-card); color: var(--ah-text); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.astro-drawer__intro { padding: 12px 16px 6px; }
+.astro-drawer__primary { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; color: #FFFFFF !important; background: #FF4500; font-size: 14.5px; font-weight: 600; }
+.astro-drawer__intro > span { display: block; text-align: center; margin-top: 6px; color: var(--ah-faint); font-size: 12px; }
+.astro-drawer__nav { flex: 1; padding-block: 4px; }
+.astro-drawer__section { margin: 0 16px 12px; }
+.astro-drawer__section-title { margin: 0 4px 6px; color: var(--ah-faint); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; }
+.astro-drawer__card { background: var(--ah-card); border: 1px solid var(--ah-border); border-radius: 12px; overflow: hidden; }
+.astro-drawer__group + .astro-drawer__group, .astro-drawer__card > a + a { border-top: 1px solid var(--ah-border); }
+.astro-drawer__row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 12px; border: 0; background: transparent; text-align: left; font-size: 14px !important; font-weight: 500 !important; color: var(--ah-text); }
+.astro-drawer__row > span:nth-child(2) { flex: 1; min-width: 0; }
+.astro-drawer__row:hover { background: var(--ah-hover); }
+.astro-drawer__row-icon { width: 32px; height: 32px; border-radius: 9px; display: flex; align-items: center; justify-content: center; background: var(--ah-icon); color: var(--ah-dim); flex-shrink: 0; }
+.astro-drawer__chevron { transform: rotate(-90deg); color: var(--ah-faint); transition: transform 0.2s ease; }
+.astro-drawer__row[aria-expanded='true'] .astro-drawer__chevron { transform: rotate(0); }
+.astro-drawer__child { display: block; padding: 8px 12px 8px 52px; font-size: 13px; color: var(--ah-dim) !important; }
+.astro-drawer__child:hover { color: var(--ah-text) !important; background: var(--ah-hover); }
+
+@keyframes astro-dropdown-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes astro-drawer-in { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+
+@media (min-width: 1024px) { .astro-header__logo { width: 36px; height: 36px; } }
+@media (min-width: 1280px) {
+  .astro-header__inner { height: 72px; padding-inline: 32px; gap: 8px; }
+  .astro-header__hamburger { display: none; }
+  .astro-header__brand-name { font-size: 22px; max-width: 170px; }
+  .astro-header__nav { display: flex; }
+  .astro-header__cta { display: inline-flex; }
+}
+@media (min-width: 1360px) {
+  .astro-header__talk, .astro-header__separator { display: inline; }
+}
+@media (max-width: 359px) {
+  .astro-header__inner { gap: 6px; padding-inline: 12px; }
+  .astro-header__left { gap: 4px; }
+  .astro-header__brand-name { max-width: 96px; font-size: 17px; }
+  .astro-header__actions { gap: 6px; }
+  .astro-drawer__header { padding-inline: 12px; }
+  .astro-drawer__header .astro-header__brand-name { max-width: 145px; font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .astro-header *, .astro-drawer *, .astro-drawer[open] { animation: none !important; transition: none !important; }
+}

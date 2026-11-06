@@ -1,0 +1,91 @@
+.panchang-page { padding-top: 72px; background: var(--hero-background); }
+.panchang-preview { background: var(--hero-background-pattern), var(--hero-background); border-block: 1px solid var(--border-subtle); }
+.panchang-preview-top { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
+.panchang-preview-top .btn { flex-shrink: 0; }
+.panchang-preview-top .section-title { margin-block: .5rem 1rem; }
+.panchang-elements-mini { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
+.panchang-element-mini { display: flex; flex-direction: column; align-items: center; gap: .4rem; padding: 1.5rem .75rem; border: 1px solid #ead8bb; border-radius: 16px; background: #fffcf6; text-align: center; transition: border-color .2s, transform .2s; }
+.panchang-element-mini:hover { border-color: #a94c13; transform: translateY(-3px); }
+.panchang-element-mini > span { color: #a94c13; font-size: 2rem; line-height: 1.3; }
+.panchang-element-mini strong { font-family: var(--font-heading), serif; font-size: 1.15rem; }
+.panchang-element-mini small { color: var(--text-secondary); font-size: .75rem; }
+.panchang-preview-note { margin-top: 1.25rem; font-size: .85rem; max-width: none; text-align: center; }
+.panchang-hero { padding-block: 2rem 4rem; background: var(--hero-background-pattern), var(--hero-background); border-bottom: 1px solid var(--border-subtle); }
+.panchang-hero-content { display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+.panchang-hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.18; margin-block: 1rem; }
+.panchang-hero h1 span { display: block; color: #a94c13; }
+.panchang-hero p { max-width: 58ch; }
+.panchang-emblem { width: 200px; height: 200px; border-radius: 50%; border: 1px solid #c69147; outline: 1px dashed #c69147; outline-offset: 12px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #a94c13; background: #fff4df80; }
+.panchang-emblem > span { font-size: 5rem; line-height: 1; }
+.panchang-emblem small { margin-top: 1rem; font-family: var(--font-deva), sans-serif; font-size: 1.4rem; }
+.panchang-body { padding-block: 2rem 4rem; }
+.panchang-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden; }
+.panchang-search { display: grid; grid-template-columns: 1fr 1fr auto; align-items: end; gap: 1.25rem; padding: 1.5rem; box-shadow: var(--shadow-sm); }
+.panchang-search label { display: block; font-size: .8rem; font-weight: 600; margin-bottom: .5rem; }
+.panchang-search input, .panchang-search select { width: 100%; min-width: 0; height: 48px; padding: .65rem 1rem; border: 1px solid var(--border-medium); border-radius: 8px; background: var(--bg-alt); color: var(--text-primary); font: inherit; }
+.panchang-search > div { min-width: 0; }
+.panchang-search .btn { min-height: 48px; }
+.panchang-day-nav { display: flex; justify-content: space-between; gap: .5rem; margin-block: 1.25rem 2.5rem; }
+.panchang-day-nav button, .panchang-cities button { border: 1px solid var(--border-medium); border-radius: 8px; padding: .6rem .9rem; background: var(--bg-surface); font: inherit; font-size: .85rem; cursor: pointer; }
+.panchang-day-nav button:hover, .panchang-cities button:hover, .panchang-cities button[aria-pressed='true'] { background: #ffedce; border-color: #b86720; }
+.panchang-calendar button:disabled { cursor: not-allowed; opacity: .5; }
+.panchang-date-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.panchang-date-heading h2 { font-size: clamp(1.45rem, 3vw, 2rem); margin-block: .6rem; }
+.panchang-date-heading p { font-size: .9rem; }
+.panchang-status { padding: .4rem .75rem; background: #f4eadb; color: #705333; border-radius: 30px; white-space: nowrap; font-size: .75rem; }
+.panchang-notice { max-width: none; margin-block: 1.5rem; padding: 1rem 1.25rem; border-left: 3px solid #bb782d; background: #fff1db; font-size: .875rem; border-radius: 0 8px 8px 0; }
+.panchang-sky-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.panchang-sky-card { display: flex; align-items: center; gap: 1rem; padding: 1.25rem; }
+.panchang-sky-card > span { font-size: 2rem; color: #a94c13; }
+.panchang-sky-card h3 { font-family: var(--font-body), sans-serif; font-size: .85rem; }
+.panchang-sky-card p { font-size: .8rem; margin-top: .35rem; }
+.panchang-details-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.panchang-card-heading { padding: 1.2rem 1.5rem; background: #fff3e2; font-size: 1.2rem; border-bottom: 1px solid var(--border-subtle); }
+.panchang-card-heading small { display: block; font-family: var(--font-body), sans-serif; font-size: .75rem; font-weight: 400; margin-top: .4rem; color: var(--text-secondary); }
+.panchang-heading-auspicious { background: #edf4e9; }
+.panchang-detail-list { padding: .25rem 1.5rem; }
+.panchang-detail-list > div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: .9rem; font-size: .875rem; }
+.panchang-detail-list > div + div { border-top: 1px solid var(--border-subtle); }
+.panchang-detail-list dd { text-align: right; }
+.panchang-unavailable { color: var(--text-muted); font-size: .8rem; }
+.panchang-observances { display: flex; gap: 1.25rem; padding: 1.5rem; margin-top: 1.5rem; }
+.panchang-observances > span { font-size: 2rem; color: #a94c13; }
+.panchang-observances h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+.panchang-observances p { font-size: .875rem; }
+.panchang-cities { margin-top: 2rem; }
+.panchang-cities h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+.panchang-cities > div { display: flex; flex-wrap: wrap; gap: .6rem; }
+.panchang-learn { margin-top: 4rem; }
+.panchang-learn > h2, .panchang-consult h2, .panchang-faq > h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-block: .7rem 1rem; }
+.panchang-learning-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.75rem; }
+.panchang-learning-card { padding: 1.5rem; scroll-margin-top: 100px; }
+.panchang-card-number { display: flex; justify-content: space-between; color: #a94c13; font-size: .8rem; margin-bottom: 1rem; }
+.panchang-card-number span { font-size: 1.5rem; }
+.panchang-learning-card h3 { font-size: 1.2rem; margin-bottom: .75rem; }
+.panchang-learning-card h3 span { font-family: var(--font-deva), sans-serif; font-size: .85rem; font-weight: 400; margin-left: .5rem; color: var(--text-muted); }
+.panchang-learning-card p { font-size: .875rem; }
+.panchang-consult { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-block: 3rem; padding: 2rem; border-radius: 16px; background: var(--hero-background-pattern), var(--hero-background); border: 1px solid var(--border-subtle); }
+.panchang-consult .btn { flex-shrink: 0; }
+.panchang-faq { max-width: 850px; margin-inline: auto; }
+.panchang-faq > h2 { margin-bottom: 1.5rem; }
+.panchang-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 900px) {
+  .panchang-preview-top, .panchang-consult { align-items: flex-start; flex-direction: column; }
+  .panchang-search { grid-template-columns: 1fr 1fr; }
+  .panchang-search .btn { grid-column: 1 / -1; }
+  .panchang-sky-grid, .panchang-learning-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .panchang-emblem { width: 140px; height: 140px; }
+  .panchang-emblem > span { font-size: 3rem; }
+}
+@media (max-width: 600px) {
+  .panchang-hero { padding-bottom: 2rem; }
+  .panchang-emblem { display: none; }
+  .panchang-elements-mini { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  .panchang-element-mini:last-child { grid-column: 1 / -1; }
+  .panchang-details-grid, .panchang-learning-grid, .panchang-search { grid-template-columns: minmax(0, 1fr); }
+  .panchang-date-heading { align-items: flex-start; flex-direction: column; }
+  .panchang-sky-card { padding: 1rem .75rem; gap: .6rem; }
+  .panchang-sky-card > span { font-size: 1.5rem; }
+  .panchang-day-nav button { padding: .6rem .65rem; font-size: .75rem; }
+  .panchang-consult { padding: 1.5rem; }
+}
